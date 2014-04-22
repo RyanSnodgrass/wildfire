@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong State:
+  = @location.state
+%p
+  %strong Population density:
+  = @location.population_density
+= link_to 'Edit', edit_location_path(@location)
+|
+\#{link_to 'Back', locations_path}

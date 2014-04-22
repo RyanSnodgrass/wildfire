@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Started by:
+  = @fire.started_by
+%p
+  %strong Acres:
+  = @fire.acres
+%p
+  %strong Still burning:
+  = @fire.still_burning
+%p
+  %strong Location:
+  = @loc_name
+= link_to 'Edit', edit_fire_path(@fire)
+|
+\#{link_to 'Back', fires_path}
