@@ -5,11 +5,20 @@ class FiresController < ApplicationController
   # GET /fires.json
   def index
     if params[:search]
-      @fires = Fire.search(params[:search])#.order("created_at DESC")
+      @fires = Fire.search(params[:search])
+      # elsif params[:search]
+      #   @fires = Fire.joins(:location).where('locations.state = ?', "#{params[:search]}")
+      # # else
+      # # @fires = Fire.all
+      # end
     else
-      @fires = Fire.all#.order('created_at DESC')
+    @fires = Fire.all
     end
   end
+
+  
+  
+  
 
   # def search
   #   @fires = Fire.search(params[:search])
