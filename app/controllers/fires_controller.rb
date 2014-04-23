@@ -8,8 +8,8 @@ class FiresController < ApplicationController
     @fires = Fire.search(params[:search])
     if @fires.count == 0
       @fires = Fire.joins(:location).where('locations.state = ?', "#{params[:search]}")
-    else
-      @fires = Fire.search(params[:search])
+    #else
+      #@fires = Fire.search(params[:search])
     end
   end
 

@@ -13,7 +13,7 @@
         %td= fire.started_by
         %td= fire.acres
         %td= fire.still_burning
-        %td= fire.location_id
+        %td= fire.location.state
         %td= link_to 'Show', fire
         %td= link_to 'Edit', edit_fire_path(fire)
         %td= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' }
