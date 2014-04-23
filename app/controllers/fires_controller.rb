@@ -4,15 +4,12 @@ class FiresController < ApplicationController
   # GET /fires
   # GET /fires.json
   def index
-    if params[:search]
-      @fires = Fire.search(params[:search])
-      # elsif params[:search]
-      #   @fires = Fire.joins(:location).where('locations.state = ?', "#{params[:search]}")
-      # # else
-      # # @fires = Fire.all
-      # end
-    else
     @fires = Fire.all
+    @fires = Fire.search(params[:search])
+    if @fires.count == 0
+      @fires = Fire.joins(:location).where('locations.state = ?', "%#{params[:search]}%")
+    else
+      @fires = Fire.search(params[:search])
     end
   end
 
